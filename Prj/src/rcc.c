@@ -1,5 +1,5 @@
 /**
- * @file   	main.c
+ * @file   	rcc.c
  * @author 	m.isaev
  * @version
  * @date 	18 сент. 2018 г.
@@ -8,7 +8,7 @@
 
 
 /*#### |Begin| --> Секция - "Include" ########################################*/
-#include "main.h"
+#include "rcc.h"
 /*#### |End  | <-- Секция - "Include" ########################################*/
 
 
@@ -25,21 +25,28 @@
 
 
 /*#### |Begin| --> Секция - "Описание глобальных функций" ####################*/
-int main(void)
+void
+LL_RCC_Init_HSI_16MHz_HCLK_80MHz(
+	void)
 {
-	/*=== |Begin| --> Секция - "Конфигурирование периферии микроконтроллера" =*/
-	/* Конфигурирование тактового генератора */
-	LL_RCC_Init_HSI_16MHz_HCLK_80MHz();
+	LL_RCC_DeInit();
 
-	/*=== |End  | <-- Секция - "Конфигурирование периферии микроконтроллера" =*/
+	__HAL_RCC_PWR_CLK_ENABLE();
+	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-	/* Loop */
-	while (1)
-	{
+	LL_UTILS_PLLInitTypeDef PLL_Init_s;
+	PLL_Init_s.PLLM	= LL_RCC_PLLM_DIV_1;
+	PLL_Init_s.PLLN = 10u;
+	PLL_Init_s.PLLR = LL_RCC_PLLR_DIV_2;
 
-	}
+	LL_UTILS_ClkInitTypeDef CLK_Init_s;
+	CLK_Init_s.AHBCLKDivider 	= LL_RCC_SYSCLK_DIV_1;
+	CLK_Init_s.APB1CLKDivider 	= LL_RCC_APB1_DIV_1;
+	CLK_Init_s.APB2CLKDivider 	= LL_RCC_APB2_DIV_1;
 
-	return (1);
+	LL_PLL_ConfigSystemClock_HSI(
+		&PLL_Init_s,
+		&CLK_Init_s);
 }
 /*#### |End  | <-- Секция - "Описание глобальных функций" ####################*/
 

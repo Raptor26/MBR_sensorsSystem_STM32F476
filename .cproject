@@ -44,8 +44,10 @@
 								</option>
 								<option id="com.atollic.truestudio.gcc.symbols.defined.372045299" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="STM32L476xx"/>
-									<listOptionValue builtIn="false" value="HSE_VALUE=16000000"/>
-									<listOptionValue builtIn="false" value="HSI_VALUE=8000000"/>
+									<listOptionValue builtIn="false" value="HSE_VALUE=16000000u"/>
+									<listOptionValue builtIn="false" value="HSI_VALUE=16000000u"/>
+									<listOptionValue builtIn="false" value="HSE_STARTUP_TIMEOUT=1000u"/>
+									<listOptionValue builtIn="false" value="USE_FULL_LL_DRIVER"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.fpucore.1021558514" name="FPU" superClass="com.atollic.truestudio.common_options.target.fpucore" useByScannerDiscovery="false" value="com.atollic.truestudio.common_options.target.fpucore.fpv4-sp-d16" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.465258443" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" useByScannerDiscovery="false" value="STM32L476VG" valueType="enumerated"/>
